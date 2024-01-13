@@ -25,5 +25,5 @@ public class Client extends GenericModel {
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     @JsonIgnore
-    private List<Terrain> terrains;
+    private List<Land> lands;
 }

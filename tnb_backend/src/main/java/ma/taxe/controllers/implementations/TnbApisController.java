@@ -1,8 +1,7 @@
 package ma.taxe.controllers.implementations;
 
 import lombok.AllArgsConstructor;
-import ma.taxe.models.implementations.Client;
-import ma.taxe.models.implementations.Terrain;
+import ma.taxe.models.implementations.request.Tnb;
 import ma.taxe.services.implementations.TnbApisService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ public class TnbApisController {
     private TnbApisService tnbApisService;
 
     @PostMapping(value = "/calculate")
-    public Double calculerTaxeTnb(@RequestBody Client client, @RequestParam Integer year, @RequestBody Terrain terrain) {
-        return tnbApisService.calculerTaxeTnb(client, year, terrain);
+    public Double calculerTaxeTnb(@RequestBody Tnb tnb) {
+        return tnbApisService.calculerTaxeTnb(tnb);
     }
 }

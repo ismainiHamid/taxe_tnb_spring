@@ -22,5 +22,5 @@ public class Category extends GenericModel {
 
     @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
     @JsonIgnore
-    private List<Terrain> terrains;
+    private List<Land> lands;
 }

@@ -10,7 +10,7 @@ import ma.taxe.models.GenericModel;
 @Getter(AccessLevel.PUBLIC)
 @Setter(AccessLevel.PUBLIC)
 @Table(name = "terrains")
-public class Terrain extends GenericModel {
+public class Land extends GenericModel {
     @Column(nullable = false, length = 200)
     private String nom;
 

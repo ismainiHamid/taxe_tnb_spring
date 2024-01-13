@@ -26,7 +26,7 @@ public class TaxeTnb extends GenericModel {
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JsonIgnore
-    private Terrain terrain;
+    private Land land;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JsonIgnore

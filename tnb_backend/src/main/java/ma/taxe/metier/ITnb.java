@@ -1,8 +1,7 @@
 package ma.taxe.metier;
 
-import ma.taxe.models.implementations.Client;
-import ma.taxe.models.implementations.Terrain;
+import ma.taxe.models.implementations.request.Tnb;
 
 public interface ITnb {
-    Double calculerTaxeTnb(Client client, Integer year, Terrain terrain);
+    Double calculerTaxeTnb(Tnb tnb);
 }
