@@ -11,30 +11,32 @@
 
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto text-center">
-              <li class="nav-item active">
+              <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" href="#">TNB</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="tnb/clients">Clients</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="tnb/lands">Lands</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink="#">Taxes</a>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="#">Rates</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="tnb/categories">Categories</a>
               </li>
             </ul>
           </div>
-
         </div>
       </nav>
     </div>
 
     <div class="col-md-12 p-5">
-      <app-land></app-land>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+
+
+

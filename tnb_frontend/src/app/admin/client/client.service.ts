@@ -6,7 +6,7 @@ import {Client} from "./client.component";
   providedIn: 'root'
 })
 export class ClientService {
-  public uri: string = "/tnb/clients";
+  public uri: string = "/api/tnb/clients";
 
   constructor(private httpClient: HttpClient) {
   }

@@ -6,7 +6,7 @@ import {Land} from "./land.component";
   providedIn: 'root'
 })
 export class LandService {
-  public uri: string = '/tnb/terrains'
+  public uri: string = '/api/tnb/terrains'
 
   constructor(private httpClient: HttpClient) {
   }

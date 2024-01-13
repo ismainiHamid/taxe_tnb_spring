@@ -7,11 +7,12 @@ import {LandComponent} from "./admin/land/land.component";
 
 const routes: Routes = [
   {
-    path: 'tnb', children: [
-      {path: 'categories', component: CategoryComponent},
-      {path: 'clients', component: ClientComponent},
-      {path: 'lands', component: LandComponent}
-    ], component: AdminComponent
+    path: 'tnb',
+    children: [
+      {path: 'categories', title: 'Categories', component: CategoryComponent},
+      {path: 'clients', title: 'Clients', component: ClientComponent},
+      {path: 'lands', title: 'Lands', component: LandComponent}
+    ]
   }
 ];
 

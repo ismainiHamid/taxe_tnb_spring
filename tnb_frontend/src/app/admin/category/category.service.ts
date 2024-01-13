@@ -6,7 +6,7 @@ import {Category} from "./category.component";
   providedIn: 'root'
 })
 export class CategoryService {
-  public uri:string = '/tnb/categories';
+  public uri:string = '/api/tnb/categories';
   constructor(private httpClient: HttpClient) { }
 
   public save(category:Category){
