@@ -16,6 +16,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import { ClientComponent } from './admin/client/client.component';
 import { LandComponent } from './admin/land/land.component';
+import { TauxComponent } from './admin/taux/taux.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LandComponent } from './admin/land/land.component';
     AdminComponent,
     CategoryComponent,
     ClientComponent,
-    LandComponent
+    LandComponent,
+    TauxComponent
   ],
   imports: [
     BrowserModule,

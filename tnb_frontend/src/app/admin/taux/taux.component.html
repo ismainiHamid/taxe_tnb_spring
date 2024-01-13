@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-header fw-bold border-0 bg-white">All rates</div>
+      <div class="card-body">
+        <div class="position-relative">
+          <input type="text" (keyup)="applyFilter($event)" class="form-control rounded-pill border-2 px-4 mb-4"
+                 placeholder="Search ..." id="searchInput" #input>
+          <i class="bi bi-search rounded-pill"></i>
+        </div>
+
+        <table mat-table [dataSource]="dataSource"
+               class="table table-sm table-bordered mat-elevation-z8  shadow-sm bg-white table-hover border m-0">
+          <ng-container matColumnDef="montant">
+            <th mat-header-cell *matHeaderCellDef style="width: 18%">Rising</th>
+            <td mat-cell *matCellDef="let element"> {{ element.montant }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef style="width: 18%">Category</th>
+            <td mat-cell *matCellDef="let element"> {{ element.category.label }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef style="width: 18%">CreatedAt</th>
+            <td mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'MMM dd, yyyy' }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef style="width: 10%">Actions</th>
+            <td mat-cell *matCellDef="let element">
+              <button data-bs-toggle="modal" data-bs-target="#exampleModal" mat-mini-fab color="warn"
+                      class="shadow-none"
+                      style="width: 30px !important; height: 30px;">
+                <i class="bi bi-trash"></i>
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1"
+                   aria-labelledby="exampleModalLabel"
+                   aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-body p-0">
+                      <div class="card border-0 text-start">
+                        <div class="card-header fs-5 fw-bold p-3 border-0 bg-white">Warning</div>
+                        <div class="card-body fs-6">
+                          Are you sur, you want the delete the rate :
+                          <span class="text-danger fw-bold">{{ element.montant }}</span> |
+                          <span class="text-danger fw-bold">{{ element.category.label }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                      <button type="button" mat-raised-button class="px-4 rounded-pill" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg me-2"></i>
+                        Close
+                      </button>
+                      <button type="button" (click)="delete(element)" mat-raised-button color="warn"
+                              data-bs-dismiss="modal" class="px-4 rounded-pill">
+                        <i class="bi bi-trash me-2"></i>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSize]="5" aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 position-sticky">
+    <div class="card shadow-sm border-0">
+      <div class="card-header border-0 bg-white fw-bold">Add new</div>
+      <div class="card-body">
+        <form (ngSubmit)="save(ratesForm)" #ratesForm="ngForm">
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control border-2 rounded-0 border-0 border-bottom" id="nomInput"
+                   placeholder="Rising ..." name="montant" [(ngModel)]="taux.montant" #montant="ngModel">
+            <label for="nomInput" class="ps-0">Raising</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <select class="form-select border-2 rounded-0 border-0 border-bottom" id="categorySelect" name="category"
+                    [(ngModel)]="taux.category" #category="ngModel" aria-label="Floating label select example">
+              <option selected disabled>Categories ...</option>
+              <option *ngFor="let category of categories" [ngValue]="category">{{ category.label }}</option>
+            </select>
+            <label for="categorySelect" class="ps-0">Categories</label>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" mat-raised-button class="shadow-none rounded-pill bg-success text-white px-5">
+              <i class="bi bi-floppy me-2"></i>
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

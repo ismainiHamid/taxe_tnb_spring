@@ -60,7 +60,7 @@ export class LandComponent implements OnInit {
   public findAll() {
     this.landService.findAll().subscribe(data => {
       this.lands = data;
-      this.dataSource = new MatTableDataSource<Category>(this.lands);
+      this.dataSource = new MatTableDataSource<Land>(this.lands);
       // @ts-ignore
       this.dataSource.paginator = this.paginator;
     });
