@@ -15,6 +15,6 @@
 }
 
 .nav-item:hover .nav-link, .nav-item.active .nav-link {
-  color: var(--var-color-winter-blue) !important;
-  border-color:  var(--var-color-winter-blue) !important;
+  color: rgba(255, 255, 255, 90%) !important;
+  border-color:  rgba(255, 255, 255, 90%) !important;
 }
