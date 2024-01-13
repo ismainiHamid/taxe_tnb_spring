@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class TnbApisController {
     private TnbApisService tnbApisService;
 
-    @GetMapping(value = "/calculerTnb")
+    @PostMapping(value = "/calculate")
     public Double calculerTaxeTnb(@RequestBody Client client, @RequestParam Integer year, @RequestBody Terrain terrain) {
         return tnbApisService.calculerTaxeTnb(client, year, terrain);
     }
