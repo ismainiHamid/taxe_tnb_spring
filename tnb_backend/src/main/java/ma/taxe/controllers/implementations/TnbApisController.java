@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/tnbApis")
 @AllArgsConstructor
+@CrossOrigin(value = "http://localhost:4200")
 public class TnbApisController {
     private TnbApisService tnbApisService;
 
