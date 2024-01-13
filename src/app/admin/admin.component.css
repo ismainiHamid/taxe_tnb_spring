@@ -1,0 +1,20 @@
+.navbar {
+  background-color: var(--var-color-winter-cold);
+}
+
+.nav-item {
+  text-align: center;
+  margin-left: 1rem;
+  transition: .4s;
+}
+
+.nav-link {
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  padding: .1rem .25rem !important;
+}
+
+.nav-item:hover .nav-link, .nav-item.active .nav-link {
+  color: var(--var-color-winter-blue) !important;
+  border-color:  var(--var-color-winter-blue) !important;
+}
