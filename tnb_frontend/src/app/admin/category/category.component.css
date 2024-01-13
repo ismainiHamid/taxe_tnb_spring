@@ -1,0 +1,28 @@
+.mat-mdc-table .mat-mdc-header-cell {
+  background-color: #053B50 !important;
+  color: rgba(255, 255, 255, 90%);
+}
+
+.mat-mdc-header-cell {
+  border: none !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.mat-mdc-cell {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.mat-mdc-paginator {
+  background-color: var(--var-color-winter-blue);
+}
+
+#searchInput + i {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  color: var(--var-color-winter-blue);
+  padding: .35rem 1.5rem;
+}
+
