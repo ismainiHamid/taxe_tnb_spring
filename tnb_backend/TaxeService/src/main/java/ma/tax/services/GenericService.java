@@ -1,5 +1,6 @@
 package ma.tax.services;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import ma.tax.metier.IMetier;
 import ma.tax.repositories.GenericRepository;
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Transactional
 @AllArgsConstructor
 public class GenericService<S extends T> implements IMetier<S> {
     private GenericRepository<S> genericRepository;

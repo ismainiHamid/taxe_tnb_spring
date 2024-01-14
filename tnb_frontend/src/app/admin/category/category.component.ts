@@ -7,7 +7,7 @@ import {NgForm} from "@angular/forms";
 export class Category {
   id?: number;
   label?: string;
-  description?: string;
+  rising?: string;
   createdAt?: Date;
 }
 
@@ -19,7 +19,7 @@ export class Category {
 export class CategoryComponent implements OnInit {
   public categories: Category[] = [];
   public category: Category;
-  public displayedColumns: string[] = ['label', 'description', 'createdAt', 'actions'];
+  public displayedColumns: string[] = ['label', 'rising', 'createdAt', 'actions'];
   public dataSource = new MatTableDataSource<Category>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;

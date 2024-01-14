@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import ma.land.metier.IMetier;
 import ma.land.repositories.GenericRepository;
 import ma.land.utils.T;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Transactional
 @AllArgsConstructor
 public class GenericService<S extends T> implements IMetier<S> {
     private GenericRepository<S> genericRepository;

@@ -7,9 +7,8 @@ import {Category} from "../category/category.component";
 
 export class Client {
   id?: number;
-  nom?: string;
-  prenom?: string;
-  cin?: string;
+  fullName?: string;
+  cardNumber?: string;
   createdAt?: Date;
 }
 
@@ -21,7 +20,7 @@ export class Client {
 export class ClientComponent implements OnInit {
   public clients: Client[] = [];
   public client: Client;
-  public displayedColumns: string[] = ['nom', 'prenom', 'cin', 'createdAt', 'actions'];
+  public displayedColumns: string[] = ['fullName', 'cardNumber', 'createdAt', 'actions'];
   public dataSource = new MatTableDataSource<Client>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;

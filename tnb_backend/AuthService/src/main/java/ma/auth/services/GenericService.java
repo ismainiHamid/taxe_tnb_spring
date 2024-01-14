@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Transactional
 @AllArgsConstructor
 public class GenericService<S extends T> implements IMetier<S> {
     private GenericRepository<S> genericRepository;

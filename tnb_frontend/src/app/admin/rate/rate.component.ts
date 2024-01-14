@@ -1,34 +1,34 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Category} from "../category/category.component";
-import {TauxService} from "./taux.service";
-import {CategoryService} from "../category/category.service";
-import {NgForm} from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
+import {RateService} from "../Rate/Rate.service";
+import {CategoryService} from "../category/category.service";
+import {NgForm} from "@angular/forms";
 
-export class Taux {
+export class Rate {
   id?: number;
-  montant?: number;
-  category?: Category;
+  ratePercent?: number;
+  year?: number;
   createdAt?: Date;
 }
 
 @Component({
-  selector: 'app-taux',
-  templateUrl: './taux.component.html',
-  styleUrls: ['./taux.component.css']
+  selector: 'app-rate',
+  templateUrl: './rate.component.html',
+  styleUrls: ['./rate.component.css']
 })
-export class TauxComponent implements OnInit {
-  public taux: Taux;
-  public tauxes: Taux[] = [];
+export class RateComponent implements OnInit{
+  public rate: Rate;
+  public rates: Rate[] = [];
   public categories: Category[] = [];
-  public displayedColumns: string[] = ['montant', 'category', 'createdAt', 'actions'];
-  public dataSource = new MatTableDataSource<Taux>();
+  public displayedColumns: string[] = ['ratePercent', 'year', 'createdAt', 'actions'];
+  public dataSource = new MatTableDataSource<Rate>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;
 
-  constructor(private tauxService: TauxService, private categoryService: CategoryService) {
-    this.taux = new Taux();
+  constructor(private rateService: RateService, private categoryService: CategoryService) {
+    this.rate = new Rate();
   }
 
   public ngOnInit() {
@@ -37,22 +37,22 @@ export class TauxComponent implements OnInit {
   }
 
   public save(ngFrom: NgForm) {
-    this.tauxService.save(this.taux).subscribe(result => {
+    this.rateService.save(this.rate).subscribe(result => {
       this.findAll();
       ngFrom.resetForm();
     })
   }
 
-  public delete(taux: Taux) {
-    this.tauxService.delete(taux).subscribe(result => {
+  public delete(Rate: Rate) {
+    this.rateService.delete(Rate).subscribe(result => {
       this.findAll();
     });
   }
 
   public findAll() {
-    this.tauxService.findAll().subscribe(data => {
-      this.tauxes = data;
-      this.dataSource = new MatTableDataSource<Taux>(this.tauxes);
+    this.rateService.findAll().subscribe(data => {
+      this.rates = data;
+      this.dataSource = new MatTableDataSource<Rate>(this.rates);
       // @ts-ignore
       this.dataSource.paginator = this.paginator;
     });

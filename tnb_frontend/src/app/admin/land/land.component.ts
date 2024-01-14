@@ -10,7 +10,7 @@ import {CategoryService} from "../category/category.service";
 
 export class Land {
   id?: number;
-  nom?: string;
+  address?: string;
   surface?: number;
   client?: Client;
   category?: Category;
@@ -27,7 +27,7 @@ export class LandComponent implements OnInit {
   public land: Land;
   public clients: Client[] = [];
   public categories: Category[] = [];
-  public displayedColumns: string[] = ['nom', 'surface', 'client', 'category', 'createdAt', 'actions'];
+  public displayedColumns: string[] = ['address', 'surface', 'client', 'category', 'createdAt', 'actions'];
   public dataSource = new MatTableDataSource<Land>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;

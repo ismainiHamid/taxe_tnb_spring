@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TauxComponent } from './taux.component';
+import { RateComponent } from './rate.component';
 
-describe('TauxComponent', () => {
-  let component: TauxComponent;
-  let fixture: ComponentFixture<TauxComponent>;
+describe('RateComponent', () => {
+  let component: RateComponent;
+  let fixture: ComponentFixture<RateComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TauxComponent]
+      declarations: [RateComponent]
     });
-    fixture = TestBed.createComponent(TauxComponent);
+    fixture = TestBed.createComponent(RateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
