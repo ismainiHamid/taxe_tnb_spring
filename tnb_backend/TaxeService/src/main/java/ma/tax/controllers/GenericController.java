@@ -31,4 +31,9 @@ public class GenericController<S extends T> {
     public List<S> findAll() {
         return genericService.findAll();
     }
+
+    @GetMapping(path = "/{id}")
+    public S findById(@PathVariable Long id) {
+        return genericService.findById(id);
+    }
 }

@@ -1,0 +1,65 @@
+<!-- Button trigger modal -->
+<button mat-flat-button type="button" class="w-100 rounded-pill bg-success border-2" style="height: 40px;"
+        data-bs-toggle="modal" data-bs-target="#saveModal">
+  <i class="bi bi-plus-lg me-2"></i>
+  Add new
+</button>
+
+<!-- Modal -->
+<form (ngSubmit)="save(categoriesForm)" #categoriesForm="ngForm">
+  <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+       aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card border-0 text-start">
+            <div class="card-header fs-5 fw-bold p-3 border-0 bg-white">Add client</div>
+            <div class="card-body fs-6">
+              <div class="form-floating mb-4">
+                <input type="text" class="form-control border-2 rounded-0 border-0 border-bottom" id="addressInput"
+                       placeholder="Address" name="address" [(ngModel)]="land.address" #address="ngModel" required>
+                <label for="addressInput" class="ps-0">Address</label>
+              </div>
+
+              <div class="form-floating mb-4">
+                <input type="number" class="form-control border-2 rounded-0 border-0 border-bottom" id="surfaceInput"
+                       placeholder="Last name" name="surface" [(ngModel)]="land.surface" #surface="ngModel" required>
+                <label for="surfaceInput" class="ps-0">Surface</label>
+              </div>
+
+              <div class="form-floating mb-4">
+                <select class="form-select border-2 rounded-0 border-0 border-bottom" id="clientSelect" name="client"
+                        [(ngModel)]="land.client" #client="ngModel" aria-label="Floating label select example" required>
+                  <option selected disabled>Client ...</option>
+                  <option *ngFor="let client of clients" [ngValue]="client">{{ client.fullName }}
+                    | {{ client.cardNumber }}
+                  </option>
+                </select>
+                <label for="clientSelect" class="ps-0">Clients</label>
+              </div>
+
+              <div class="form-floating mb-4">
+                <select class="form-select border-2 rounded-0 border-0 border-bottom" id="categorySelect" required
+                        name="category" [(ngModel)]="land.category" #category="ngModel" aria-label="Floating label select example">
+                  <option selected disabled>Categories ...</option>
+                  <option *ngFor="let category of categories" [ngValue]="category">{{ category.label }}</option>
+                </select>
+                <label for="categorySelect" class="ps-0">Categories</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" mat-raised-button class="px-4 rounded-pill" data-bs-dismiss="modal">
+            <i class="bi bi-x-lg me-2"></i>
+            Close
+          </button>
+          <button type="submit" mat-raised-button data-bs-dismiss="modal" class="px-4 bg-success rounded-pill">
+            <i class="bi bi-floppy me-2"></i>
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

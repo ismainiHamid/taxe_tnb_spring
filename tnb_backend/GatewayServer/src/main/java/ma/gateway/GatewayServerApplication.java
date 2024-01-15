@@ -18,7 +18,10 @@ public class GatewayServerApplication {
     @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("auth-service", a -> a
+                .route("tnb-service", t -> t
+                        .path("/api/tnb-service/**")
+                        .uri("http://localhost:7272")
+                ).route("auth-service", a -> a
                         .path("/api/auth-service/**")
                         .uri("http://localhost:7474")
                 ).route("land-service", l -> l

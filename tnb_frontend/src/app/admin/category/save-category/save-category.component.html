@@ -1,0 +1,46 @@
+<!-- Button trigger modal -->
+<button mat-flat-button type="button" class="w-100 rounded-pill bg-success border-2" style="height: 40px;"
+        data-bs-toggle="modal" data-bs-target="#saveModal">
+  <i class="bi bi-plus-lg me-2"></i>
+  Add new
+</button>
+
+<!-- Modal -->
+<form (ngSubmit)="save(categoriesForm)" #categoriesForm="ngForm">
+  <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+       aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card border-0 text-start">
+            <div class="card-header fs-5 fw-bold p-3 border-0 bg-white">Add category</div>
+            <div class="card-body fs-6">
+              <div class="form-floating mb-4">
+                <input type="text" class="form-control border-2 rounded-0 border-0 border-bottom" id="labelInput"
+                       placeholder="name" name="label" [(ngModel)]="category.label" #label="ngModel" required>
+                <label for="labelInput" class="ps-0">Name</label>
+              </div>
+
+              <div class="form-floating mb-4">
+                <input type="number" class="form-control border-2 rounded-0 border-0 border-bottom" id="risingInput"
+                       placeholder="rising" name="rising" [(ngModel)]="category.rising" #rising="ngModel" required>
+                <label for="risingInput" class="ps-0">Rising</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" mat-raised-button class="px-4 rounded-pill" data-bs-dismiss="modal">
+            <i class="bi bi-x-lg me-2"></i>
+            Close
+          </button>
+          <button type="submit" mat-raised-button data-bs-dismiss="modal" class="px-4 bg-success rounded-pill">
+            <i class="bi bi-floppy me-2"></i>
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

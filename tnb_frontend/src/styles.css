@@ -4,14 +4,14 @@
 
 :root {
   --var-font-size: 14px;
-  --var-color-winter-blue: #053B50;
-  --var-color-winter-cold: #176B87;
-  --var-color-winter-green: #64CCC5;
-  --var-color-winter-gray: #EEEEEE;
-  --var-color-winter-blue-rgb: rgb(5, 59, 80);
-  --var-color-winter-cold-rgb: rgb(23, 107, 135);
-  --var-color-winter-green-rgb: rgb(100, 204, 197);
-  --var-color-winter-gray-rgb: rgb(238, 238, 238);
+  --var-color-winter-blue: #86A789;
+  --var-color-winter-cold: #B2C8BA;
+  --var-color-winter-green: #D2E3C8;
+  --var-color-winter-gray: #EBF3E8;
+  --var-color-winter-blue-rgb: rgb(134, 167, 137);
+  --var-color-winter-cold-rgb: rgb(178, 200, 186);
+  --var-color-winter-green-rgb: rgb(210, 227, 200);
+  --var-color-winter-gray-rgb: rgb(235, 243, 232);
 }
 
 body {
@@ -37,16 +37,16 @@ input:focus, select:focus, button:focus, a:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6883BC;
+  background: var(--var-color-winter-blue);
   transition: .4s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #637bad;
+  background-color: var(--var-color-winter-cold);
 }
 
 .mat-mdc-table .mat-mdc-header-cell {
-  background-color: #053B50 !important;
+  background-color: #0F1035 !important;
   color: rgba(255, 255, 255, 90%);
 }
 
@@ -62,13 +62,17 @@ input:focus, select:focus, button:focus, a:focus {
 }
 
 .mat-mdc-paginator {
-  background-color: var(--var-color-winter-blue) !important;
+  background-color: #0F1035 !important;
 }
 
 #searchInput + i {
   position: absolute;
   top: 4px;
-  right: 0;
-  color: var(--var-color-winter-blue);
+  right: 6px;
+  color: #0F1035;
   padding: .35rem 1.5rem;
+}
+
+.table-bordered > :not(caption) > * > * {
+  border-width: 0 0;
 }

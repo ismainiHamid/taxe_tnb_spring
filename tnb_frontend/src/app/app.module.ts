@@ -18,6 +18,10 @@ import { ClientComponent } from './admin/client/client.component';
 import { LandComponent } from './admin/land/land.component';
 import { TnbComponent } from './admin/tnb/tnb.component';
 import {RateComponent} from "./admin/rate/rate.component";
+import { SaveCategoryComponent } from './admin/category/save-category/save-category.component';
+import { SaveClientComponent } from './admin/client/save-client/save-client.component';
+import { SaveLandComponent } from './admin/land/save-land/save-land.component';
+import { SaveRateComponent } from './admin/rate/save-rate/save-rate.component';
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import {RateComponent} from "./admin/rate/rate.component";
     ClientComponent,
     LandComponent,
     TnbComponent,
-    RateComponent
+    RateComponent,
+    SaveCategoryComponent,
+    SaveClientComponent,
+    SaveLandComponent,
+    SaveRateComponent,
   ],
   imports: [
     BrowserModule,

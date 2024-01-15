@@ -18,28 +18,19 @@ export class Category {
 })
 export class CategoryComponent implements OnInit {
   public categories: Category[] = [];
-  public category: Category;
   public displayedColumns: string[] = ['label', 'rising', 'createdAt', 'actions'];
   public dataSource = new MatTableDataSource<Category>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;
 
   constructor(private categoryService: CategoryService) {
-    this.category = new Category();
   }
 
   public ngOnInit() {
     this.findAll();
   }
 
-  public save(ngForm:NgForm) {
-    this.categoryService.save(this.category).subscribe(result => {
-      this.findAll();
-      ngForm.resetForm();
-    });
-  }
-
-  public delete(category:Category){
+  public delete(category: Category) {
     this.categoryService.delete(category).subscribe(result => {
       this.findAll();
     });

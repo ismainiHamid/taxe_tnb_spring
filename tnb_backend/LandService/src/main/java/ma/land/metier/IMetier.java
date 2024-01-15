@@ -12,4 +12,6 @@ public interface IMetier<S extends T> {
     S delete(Long id);
 
     List<S> findAll();
+
+    S findById(Long id);
 }

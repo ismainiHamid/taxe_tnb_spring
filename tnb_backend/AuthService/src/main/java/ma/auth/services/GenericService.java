@@ -46,4 +46,9 @@ public class GenericService<S extends T> implements IMetier<S> {
     public List<S> findAll() {
         return this.genericRepository.findAll().stream().filter(s -> Objects.isNull(s.getDeletedAt())).toList();
     }
+
+    @Override
+    public S findById(Long id) {
+        return this.genericRepository.findById(id).stream().filter(s -> Objects.isNull(s.getDeletedAt())).findFirst().orElse(null);
+    }
 }

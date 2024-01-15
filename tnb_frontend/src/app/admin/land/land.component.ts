@@ -24,31 +24,16 @@ export class Land {
 })
 export class LandComponent implements OnInit {
   public lands: Land[] = [];
-  public land: Land;
-  public clients: Client[] = [];
-  public categories: Category[] = [];
   public displayedColumns: string[] = ['address', 'surface', 'client', 'category', 'createdAt', 'actions'];
   public dataSource = new MatTableDataSource<Land>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;
 
-  constructor(private landService: LandService, private clientService: ClientService, private categoryService: CategoryService) {
-    this.land = new Land();
+  constructor(private landService: LandService) {
   }
 
   public ngOnInit(): void {
     this.findAll();
-    this.findAllClients();
-    this.findAllCategories();
-  }
-
-  public save(ngForm: NgForm) {
-    this.landService.save(this.land).subscribe(result => {
-      this.findAll();
-      ngForm.resetForm();
-    });
-
-    console.log(this.land);
   }
 
   public delete(land: Land) {
@@ -63,18 +48,6 @@ export class LandComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Land>(this.lands);
       // @ts-ignore
       this.dataSource.paginator = this.paginator;
-    });
-  }
-
-  public findAllClients() {
-    this.clientService.findAll().subscribe(data => {
-      this.clients = data;
-    });
-  }
-
-  public findAllCategories() {
-    this.categoryService.findAll().subscribe(data => {
-      this.categories = data;
     });
   }
 

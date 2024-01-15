@@ -18,4 +18,7 @@ public class Rate extends GenericModel {
 
     @Column(nullable = false)
     private Integer year;
+
+    @Column(nullable = false)
+    private Long categoryId;
 }

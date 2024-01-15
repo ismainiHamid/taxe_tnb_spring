@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.ws.rs.client.Client;
 import lombok.*;
 import ma.tax.models.GenericModel;
 
@@ -21,5 +22,17 @@ public class Tax extends GenericModel {
     private Integer year;
 
     @Column(nullable = false)
+    private Boolean pay = false;
+
+    @Column(nullable = false)
     private Long clientId;
+
+    @Column(nullable = false)
+    private Long landId;
+
+    @Column(nullable = false)
+    private Long categoryId;
+
+    @ManyToOne
+    private Rate rate;
 }

@@ -1,15 +1,14 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Category} from "../category/category.component";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
-import {RateService} from "../Rate/Rate.service";
-import {CategoryService} from "../category/category.service";
-import {NgForm} from "@angular/forms";
+// @ts-ignore
+import {RateService} from "./rate.service";
 
 export class Rate {
   id?: number;
   ratePercent?: number;
   year?: number;
+  categoryId?: number;
   createdAt?: Date;
 }
 
@@ -18,29 +17,18 @@ export class Rate {
   templateUrl: './rate.component.html',
   styleUrls: ['./rate.component.css']
 })
-export class RateComponent implements OnInit{
-  public rate: Rate;
+export class RateComponent implements OnInit {
   public rates: Rate[] = [];
-  public categories: Category[] = [];
   public displayedColumns: string[] = ['ratePercent', 'year', 'createdAt', 'actions'];
   public dataSource = new MatTableDataSource<Rate>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;
 
-  constructor(private rateService: RateService, private categoryService: CategoryService) {
-    this.rate = new Rate();
+  constructor(private rateService: RateService) {
   }
 
   public ngOnInit() {
     this.findAll();
-    this.finAllCategories();
-  }
-
-  public save(ngFrom: NgForm) {
-    this.rateService.save(this.rate).subscribe(result => {
-      this.findAll();
-      ngFrom.resetForm();
-    })
   }
 
   public delete(Rate: Rate) {
@@ -55,12 +43,6 @@ export class RateComponent implements OnInit{
       this.dataSource = new MatTableDataSource<Rate>(this.rates);
       // @ts-ignore
       this.dataSource.paginator = this.paginator;
-    });
-  }
-
-  public finAllCategories() {
-    this.categoryService.findAll().subscribe(data => {
-      this.categories = data;
     });
   }
 

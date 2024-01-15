@@ -19,25 +19,16 @@ export class Client {
 })
 export class ClientComponent implements OnInit {
   public clients: Client[] = [];
-  public client: Client;
   public displayedColumns: string[] = ['fullName', 'cardNumber', 'createdAt', 'actions'];
   public dataSource = new MatTableDataSource<Client>();
   @ViewChild(MatPaginator)
   public paginator?: MatPaginator;
 
   constructor(private clientService: ClientService) {
-    this.client = new Client();
   }
 
   public ngOnInit(): void {
     this.findAll();
-  }
-
-  public save(ngForm: NgForm) {
-    this.clientService.save(this.client).subscribe(result => {
-      this.findAll();
-      ngForm.resetForm();
-    });
   }
 
   public delete(client: Client) {
